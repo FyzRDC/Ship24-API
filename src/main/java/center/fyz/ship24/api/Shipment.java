@@ -1,16 +1,16 @@
 package center.fyz.ship24.api;
 
-import java.util.HashMap;
+import java.util.List;
 
 public class Shipment {
 
 	private String shipmentId, statusCode, statusCategory, statusMilestone, originCountryCode, destinationCountryCode;
 	private Delivery delivery;
-	private String[] trackingNumbers;
+	private List<TrackingNumber> trackingNumbers;
 
 	public Shipment(String shipmentId, String statusCode, String statusCategory, String statusMilestone,
 			String originCountryCode, String destinationCountryCode, Delivery delivery,
-			String[] trackingNumbers) {
+			List<TrackingNumber> trackingNumbers, Recipient recipient) {
 		this.shipmentId = shipmentId;
 		this.statusCode = statusCode;
 		this.statusCategory = statusCategory;
@@ -49,7 +49,7 @@ public class Shipment {
 		return statusMilestone;
 	}
 
-	public String[] getTrackingNumbers() {
+	public List<TrackingNumber> getTrackingNumbers() {
 		return trackingNumbers;
 	}
 

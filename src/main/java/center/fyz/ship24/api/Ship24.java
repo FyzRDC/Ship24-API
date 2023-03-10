@@ -1,5 +1,6 @@
 package center.fyz.ship24.api;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,13 +54,14 @@ public class Ship24 {
 			if (instance.getAllCouriers().size() <= 0) { // Test if API is working
 				throw new AuthTokenException("Auth token is invalid! (No couriers)");
 			}
+			System.out.println("[SHIP24-4j] Successfully loaded " + instance.getAllCouriers().size() + " couriers!");
 		} catch (Exception e) {
 			throw new AuthTokenException("Auth token is invalid!");
 		}
 		return instance;
 	}
 
-	public List<Courier> getAllCouriers() {
+	public List<Courier> getAllCouriers() throws IOException, InvalidTrackingNumberError {
 
 		if (couriers.size() > 0) {
 			return couriers;
@@ -75,12 +77,12 @@ public class Ship24 {
 		return couriers;
 	}
 
-	public Tracker createTracking(String trackingNumber) throws JSONException, InvalidTrackingNumberError {
+	public Tracker createTracking(String trackingNumber) throws JSONException, InvalidTrackingNumberError, IOException {
 		return createTracking(trackingNumber, null);
 	}
 
 	public Tracker createTracking(String trackingNumber, String[] courierCode)
-			throws JSONException, InvalidTrackingNumberError {
+			throws JSONException, InvalidTrackingNumberError, IOException {
 		String requestURL = baseURL + "/trackers";
 
 		HashMap<String, String> values = new HashMap<>();
@@ -97,10 +99,17 @@ public class Ship24 {
 		return gson.fromJson(obj.getJSONObject("data").getJSONObject("tracker").toString(), Tracker.class);
 	}
 
-	public ArrayList<Tracking> getTrackings(String trackingNumber) throws JSONException, InvalidTrackingNumberError {
+	public ArrayList<Tracking> getTrackings(String trackingNumber)
+			throws JSONException, InvalidTrackingNumberError, IOException {
 		String requestURL = baseURL + "/trackers/search/" + trackingNumber + "/results";
 
-		String response = Request.get(requestURL, auth_token);
+		String response = "";
+
+		try {
+			response = Request.get(requestURL, auth_token);
+		} catch (Exception e) {
+			return null;
+		}
 		JSONObject obj = new JSONObject(response);
 
 		if (obj.has("errors") && !obj.getJSONArray("errors").isEmpty()) {
@@ -116,13 +125,15 @@ public class Ship24 {
 
 		return trackings;
 	}
-	
-	public Tracking getTracking(String trackingNumber) throws JSONException, InvalidTrackingNumberError {
-		return getTrackings(trackingNumber).get(0);
+
+	public Tracking getTracking(String trackingNumber) throws JSONException, InvalidTrackingNumberError, IOException {
+		ArrayList<Tracking> trackings = getTrackings(trackingNumber);
+		return trackings != null && trackings.size() > 0 ? trackings.get(0) : null;
 	}
-	
-	public List<Tracker> listExistingTrackers(int page, int limit) throws JSONException, InvalidTrackingNumberError {
-		String requestURL = baseURL + "/trackers?page=" + page + "&limit="+limit;
+
+	public List<Tracker> listExistingTrackers(int page, int limit)
+			throws JSONException, InvalidTrackingNumberError, IOException {
+		String requestURL = baseURL + "/trackers?page=" + page + "&limit=" + limit;
 
 		String response = Request.get(requestURL, auth_token);
 		JSONObject obj = new JSONObject(response);

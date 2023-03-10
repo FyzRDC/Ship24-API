@@ -2,13 +2,14 @@ package center.fyz.ship24.api;
 
 public class Tracker {
 
-	private String trackerID, trackingNumber, shipmentReference, createdAt;
+	private String trackerID, shipmentReference, createdAt;
+	private String[] trackingNumbers;
 	private boolean isSubscribed;
 
-	private Tracker(String trackedID, String trackingNumber, String shipmentReference, String createdAt,
+	private Tracker(String trackedID, String[] trackingNumbers, String trackingNumber, String shipmentReference, String createdAt,
 			boolean isSubscribed) {
 		this.trackerID = trackedID;
-		this.trackingNumber = trackingNumber;
+		this.trackingNumbers = trackingNumbers;
 		this.shipmentReference = shipmentReference;
 		this.createdAt = createdAt;
 		this.isSubscribed = isSubscribed;
@@ -26,8 +27,8 @@ public class Tracker {
 		return trackerID;
 	}
 
-	public String getTrackingNumber() {
-		return trackingNumber;
+	public String[] getTrackingNumbers() {
+		return trackingNumbers;
 	}
 
 	public boolean isSubscribed() {
