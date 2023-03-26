@@ -85,10 +85,10 @@ public class Ship24 {
 			throws JSONException, InvalidTrackingNumberError, IOException {
 		String requestURL = baseURL + "/trackers";
 
-		HashMap<String, String> values = new HashMap<>();
+		HashMap<String, Object> values = new HashMap<>();
 		values.put("trackingNumber", trackingNumber);
 		if (courierCode != null) {
-			values.put("courierCode", gson.toJson(courierCode));
+			values.put("courierCode", courierCode);
 		}
 		String response = Request.post(requestURL, values, auth_token);
 		JSONObject obj = new JSONObject(response);
@@ -105,10 +105,9 @@ public class Ship24 {
 
 		String response = "";
 
-		try {
-			response = Request.get(requestURL, auth_token);
-		} catch (Exception e) {
-			return null;
+		response = Request.get(requestURL, auth_token);
+		if(response == null) {
+			throw new InvalidTrackingNumberError("Response sent en error ! The tracking need to be created first.");
 		}
 		JSONObject obj = new JSONObject(response);
 

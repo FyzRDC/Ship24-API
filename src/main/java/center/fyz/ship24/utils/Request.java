@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 
 public class Request {
 
-	public static String post(String url, HashMap<String, String> datas, String auth_token) throws IOException {
+	public static String post(String url, HashMap<String, Object> datas, String auth_token) throws IOException {
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("POST");

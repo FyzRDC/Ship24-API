@@ -1,11 +1,12 @@
 package center.fyz.ship24;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.json.JSONException;
 
+import center.fyz.ship24.api.Courier;
 import center.fyz.ship24.api.Ship24;
-import center.fyz.ship24.api.Tracker;
 import center.fyz.ship24.api.Tracking;
 import center.fyz.ship24.exceptions.AuthTokenException;
 import center.fyz.ship24.exceptions.InvalidTrackingNumberError;
@@ -15,22 +16,12 @@ public class Main {
 	public static void main(String args[]) {
 		try {
 			Ship24 ship = Ship24.create("apik_yoj5kqFKNhshERubSEGImcx2CEzbRo");
-			Tracking tracking = ship.getTracking("CH010461205DE");
-			
-			if(tracking != null) {
-				System.out.println(tracking.getTracker().isSubscribed());
-			} else {
-				System.out.println("Is null");
+			Tracking updated = ship.getTracking("6G59355834327");
+		
+			List<Courier> carriers = ship.getAllCouriers();
+			for (Courier carrier : carriers) {
+			    System.out.println(carrier.getCourierCode());
 			}
-			
-			
-			Tracker tracker = ship.createTracking("CH010461205DE", new String[] {"fujie-express"});
-				
-			System.out.println(tracker.getCreatedAt());
-			
-			Tracking updated = ship.getTracking("CH010461205DE");
-			
-			System.out.println(updated.getTracker().isSubscribed());
 			
 			
 			
