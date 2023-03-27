@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"center.fyz.ship24"},{"l":"center.fyz.ship24.api"},{"l":"center.fyz.ship24.exceptions"},{"l":"center.fyz.ship24.utils"}];updateSearchResults();
