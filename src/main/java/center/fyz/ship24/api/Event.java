@@ -1,15 +1,22 @@
+/**
+ * @author FyzRDC
+ */
+
 package center.fyz.ship24.api;
 
 public class Event {
 
+	// declare instance variables
 	private String eventId, trackingNumber, eventTrackingNumber, status, occurrenceDatetime, order, datetime, utcOffset,
 			location, sourceCode, courierCode, statusCode, statusCategory, statusMilestone;
 	private boolean hasNoTime;
 
+	// declare constructor with all instance variables as parameters
 	private Event(String eventId, String trackingNumber, String eventTrackingNumber, String status,
 			String occurrenceDatetime, String order, String datetime, boolean hasNoTime, String utcOffset,
 			String location, String sourceCode, String courierCode, String statusCode, String statusCategory,
 			String statusMilestone) {
+		// set all instance variables to corresponding parameters
 		this.eventId = eventId;
 		this.trackingNumber = trackingNumber;
 		this.eventTrackingNumber = eventTrackingNumber;
@@ -27,6 +34,7 @@ public class Event {
 		this.hasNoTime = hasNoTime;
 	}
 
+	// declare getter methods for all instance variables
 	public String getCourierCode() {
 		return courierCode;
 	}
@@ -88,3 +96,4 @@ public class Event {
 	}
 
 }
+
