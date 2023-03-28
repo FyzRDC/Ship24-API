@@ -8,15 +8,30 @@ Ship24's API is great, but using it in Java can be complex and time-consuming. T
 
 # Installation (Coming Soon)
 
+To use it in your Maven build add:
 ```xml
-<dependency>
-    <groupId>com.ing.soon</groupId>
-    <artifactId>ship24-4j</artifactId>
-    <version>1.0.0</version>
-</dependency>
+  <repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+  </repositories>
 ```
 
+and the dependency:
+
+```xml
+	<dependency>
+		<groupId>com.github.fyzrdc</groupId>
+		<artifactId>Ship24-4j</artifactId>
+		<version>v0.1-beta</version>
+	</dependency>
+```
+
+
 ## Get Started
+
+You can find the Java doc here : https://fyzrdc.github.io/Ship24-4j/
 
 To get started with Ship24-4J, simply create a new Ship24 object with your API token, create a tracking object with a tracking number and carrier, and then retrieve the tracking information.
 
