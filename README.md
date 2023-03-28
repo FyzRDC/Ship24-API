@@ -1,5 +1,4 @@
 # Ship24-4J
-
 Ship24-4J is a Java wrapper for the Ship24 API, allowing you to easily integrate tracking functionality into your Java applications.
 
 ## Why use Ship24-4J?
@@ -7,6 +6,7 @@ Ship24-4J is a Java wrapper for the Ship24 API, allowing you to easily integrate
 Ship24's API is great, but using it in Java can be complex and time-consuming. That's where Ship24-4J comes in! With Ship24-4J, you can easily and quickly integrate Ship24's tracking functionality into your Java application. Whether you're building a shipping application or just need to track packages for your business, Ship24-4J makes it easy.
 
 # Installation (Coming Soon)
+[![](https://jitpack.io/v/FyzRDC/Ship24-4j.svg)](https://jitpack.io/#FyzRDC/Ship24-4j)
 
 To use it in your Maven build add:
 ```xml
