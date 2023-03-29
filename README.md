@@ -24,7 +24,7 @@ and the dependency:
 	<dependency>
 		<groupId>com.github.fyzrdc</groupId>
 		<artifactId>Ship24-4j</artifactId>
-		<version>v0.1-beta</version>
+		<version>VERSION</version>
 	</dependency>
 ```
 
