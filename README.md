@@ -61,6 +61,19 @@ for (Courier carrier : carriers) {
 	System.out.println(carrier.getCourierCode());
 }
 ```
+
+Create webhook listener and print tracking number :
+```java
+WebhookListener.listen(8070).secret("secret webhook").onWebhookReceived(new WebhookReceived() {
+	@Override
+	public void execute(ArrayList<Tracking> trackingsFromWebhook) {
+		for(Tracking track : trackingsFromWebhook) {
+			System.out.println("TRACK : "+track.getTracker().getTrackingNumbers()[0]);
+		}
+	}
+}).start();
+```
+
 # Conclusion
 That's it! With Ship24-4J, you can easily and quickly integrate Ship24's tracking functionality into your Java application. If you have any questions or issues, please feel free to open an issue on our GitHub repository. Thank you for using Ship24-4J!
 
