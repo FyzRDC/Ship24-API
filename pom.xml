@@ -4,13 +4,33 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Ship24-API</groupId>
 	<artifactId>Ship24-API</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v0.3-beta</version>
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>jetty</groupId>
+			<artifactId>jetty</artifactId>
+			<version>6.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>11.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>11.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>11.0.8</version>
+		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

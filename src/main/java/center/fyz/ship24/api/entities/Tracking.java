@@ -3,7 +3,7 @@
  * 
  * This class represents a tracking result containing information about the tracking, shipment, events, and statistics.
  */
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 public class Tracking {
 

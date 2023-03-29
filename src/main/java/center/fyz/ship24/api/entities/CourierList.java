@@ -3,7 +3,7 @@
  * 
  * This class represents a list of couriers.
  */
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 import java.util.List;
 

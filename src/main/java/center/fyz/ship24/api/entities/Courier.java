@@ -1,4 +1,4 @@
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 /**
  * @Author: @FyzRDC A class representing a courier.

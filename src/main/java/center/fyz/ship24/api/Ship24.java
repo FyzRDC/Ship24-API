@@ -17,8 +17,12 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
+import center.fyz.ship24.api.entities.Courier;
+import center.fyz.ship24.api.entities.Tracker;
+import center.fyz.ship24.api.entities.Tracking;
 import center.fyz.ship24.exceptions.AuthTokenException;
 import center.fyz.ship24.exceptions.InvalidTrackingNumberError;
+import center.fyz.ship24.utils.Logger;
 import center.fyz.ship24.utils.Request;
 
 public class Ship24 {
@@ -95,7 +99,7 @@ public class Ship24 {
 			if (instance.getAllCouriers().size() <= 0) { // Test if API is working
 				throw new AuthTokenException("Auth token is invalid! (No couriers)");
 			}
-			System.out.println("[SHIP24-4j] Successfully loaded " + instance.getAllCouriers().size() + " couriers!");
+			Logger.info("[SHIP24-4j] Successfully loaded " + instance.getAllCouriers().size() + " couriers!");
 		} catch (Exception e) {
 			throw new AuthTokenException("Auth token is invalid!");
 		}

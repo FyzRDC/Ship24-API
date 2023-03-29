@@ -1,4 +1,4 @@
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 /**
  * This class represents timestamps associated with a shipment.

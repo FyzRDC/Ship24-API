@@ -1,4 +1,4 @@
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 /**
  * The Tracker class represents a tracking object in the Ship24 API.

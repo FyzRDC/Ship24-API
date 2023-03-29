@@ -2,7 +2,7 @@
  * @author FyzRDC
  */
 
-package center.fyz.ship24.api;
+package center.fyz.ship24.api.entities;
 
 public class Delivery {
 
